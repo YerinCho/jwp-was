@@ -46,7 +46,7 @@ public class HttpRequestLine {
     }
 
     public String getPath() {
-        return httpUrl.getPath(httpUrl.getMimeType());
+        return httpUrl.getPath();
     }
 
     public MimeType getMimeType() {

@@ -7,14 +7,13 @@ public enum HttpMethod {
     POST,
     PUT,
     PATCH,
-    DELETE,
-    NOT_SUPPORT_METHOD;
+    DELETE;
 
     public static HttpMethod from(String httpMethod) {
         return Arrays.stream(values())
             .filter(method -> method.name().equals(httpMethod))
             .findFirst()
-            .orElse(NOT_SUPPORT_METHOD);
+            .orElseThrow(() -> new IllegalArgumentException("지원하지 않는 http 요청 메소드입니다."));
     }
 
     public HttpMethod get() {

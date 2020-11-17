@@ -33,7 +33,7 @@ public class HttpUrl {
         return MimeType.from(url);
     }
 
-    public String getPath(MimeType mimeType) {
-        return mimeType.getFilePath(url);
+    public String getPath() {
+        return getMimeType().getFilePath(url);
     }
 }

@@ -1,5 +1,6 @@
 package http;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
@@ -49,8 +50,9 @@ class HttpRequestTest {
     @DisplayName("서버에서 지원하지 않는 http 요청(get, post, put, patch, delete 제외)에 대한 테스트")
     void notSupportedMethod() throws IOException {
         InputStream in = new FileInputStream(new File(testDirectory + "connect_not_allowed.txt"));
-        HttpRequest httpRequest = new HttpRequest(in);
 
-        assertTrue(httpRequest.matchMethod(HttpMethod.NOT_SUPPORT_METHOD));
+        assertThatThrownBy(() -> new HttpRequest(in))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("지원하지 않는 http 요청 메소드입니다.");
     }
 }
