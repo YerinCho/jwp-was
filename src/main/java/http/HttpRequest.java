@@ -41,6 +41,10 @@ public class HttpRequest {
         return this.httpRequestLine.getVersion();
     }
 
+    public String getUrl() {
+        return httpRequestLine.getUrl();
+    }
+
     public String getParam(String param) {
         if (isBodyExist()) {
             return Parameters.parse(body).get(param);
@@ -54,5 +58,9 @@ public class HttpRequest {
 
     public MimeType getMimeType() {
         return httpRequestLine.getMimeType();
+    }
+
+    public boolean isResourceUrl() {
+        return !getMimeType().isPlain();
     }
 }

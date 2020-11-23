@@ -34,7 +34,7 @@ public class HttpResponse {
         writeHeaders();
     }
 
-    public void response405Header() throws IOException {
+    public void error() throws IOException {
         writeStatusLine();
     }
 
@@ -58,4 +58,5 @@ public class HttpResponse {
         }
         dos.writeBytes(System.lineSeparator());
     }
+
 }

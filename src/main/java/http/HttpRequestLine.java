@@ -52,4 +52,8 @@ public class HttpRequestLine {
     public MimeType getMimeType() {
         return httpUrl.getMimeType();
     }
+
+    public String getUrl() {
+        return httpUrl.getUrl();
+    }
 }

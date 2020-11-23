@@ -36,4 +36,8 @@ public class HttpUrl {
     public String getPath() {
         return getMimeType().getFilePath(url);
     }
+
+    public String getUrl() {
+        return this.url;
+    }
 }

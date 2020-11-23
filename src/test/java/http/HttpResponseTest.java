@@ -46,7 +46,7 @@ class HttpResponseTest {
     void response405Test() throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         HttpResponse httpResponse = new HttpResponse(out, HttpStatus.METHOD_NOT_ALLOWED, "HTTP/1.1");
-        httpResponse.response405Header();
+        httpResponse.error();
 
         String result = out.toString();
         String expected = "HTTP/1.1 405 METHOD NOT ALLOWED" + System.lineSeparator();
