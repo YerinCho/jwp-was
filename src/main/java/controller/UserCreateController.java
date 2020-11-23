@@ -26,7 +26,7 @@ public class UserCreateController extends HttpServlet {
         httpResponse.responseBody(body);
     }
 
-    public static void createUser(HttpRequest httpRequest) {
+    private static void createUser(HttpRequest httpRequest) {
         String userId = httpRequest.getParam("userId");
         String password = httpRequest.getParam("password");
         String name = httpRequest.getParam("name");
