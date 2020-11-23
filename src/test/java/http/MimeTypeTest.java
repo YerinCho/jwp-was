@@ -31,12 +31,12 @@ class MimeTypeTest {
     }
 
     @Test
-    @DisplayName("확장자가 없는경우 HTML로 설정")
+    @DisplayName("확장자가 없는경우 PLAIN로 설정")
     void fromWhenNoExtension() {
         String url = "/user/create";
         MimeType mimeType = MimeType.from(url);
 
-        assertThat(mimeType).isEqualTo(MimeType.HTML);
+        assertThat(mimeType).isEqualTo(MimeType.PLAIN);
     }
 
 }

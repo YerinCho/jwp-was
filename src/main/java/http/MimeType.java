@@ -8,7 +8,8 @@ public enum MimeType {
     JS("js", "text/javascript", "static"),
     ICO("ico", "image/x-icon", "template"),
     TTF("ttf", "font/ttf", "static"),
-    WOFF("woff", "font/woff", "static");
+    WOFF("woff", "font/woff", "static"),
+    PLAIN("plain", "text/plain", "static");
 
     public static final String DELIMITER = "\\.";
     private final String extension;
@@ -26,7 +27,7 @@ public enum MimeType {
         String urlExtension = tokens[tokens.length - 1];
         return Arrays.stream(values())
             .filter(mimeType -> mimeType.extension.equals(urlExtension))
-            .findFirst().orElse(MimeType.HTML);
+            .findFirst().orElse(MimeType.PLAIN);
     }
 
     public String getFilePath(String url) {
@@ -42,5 +43,9 @@ public enum MimeType {
 
     public String getContentType() {
         return contentType;
+    }
+
+    public boolean isPlain() {
+        return this == PLAIN;
     }
 }
